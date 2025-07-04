@@ -84,7 +84,7 @@ const BlogDetails = () => {
     formData.append("file", blogData.thumbnail);
     try {
       dispatch(setLoading(true))
-      const res = await axios.put(`http://localhost:3000/api/blogs/update/${blogId}`, formData, {
+      const res = await axios.put(`https://blog-app-mern-5.onrender.com/api/blogs/update/${blogId}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data"
         },
