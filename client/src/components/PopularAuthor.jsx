@@ -5,7 +5,7 @@ const PopularAuthor = () => {
   const [popularUser, setPopularUser] = useState([])
   const getAllUsers = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/user/allUsers`, {
+      const res = await axios.get(`https://blog-app-mern-5.onrender.com/api/user/allUsers`, {
         withCredentials: true
       })
       if (res.data.success) {
