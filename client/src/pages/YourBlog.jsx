@@ -31,7 +31,7 @@ const YourBlog = () => {
   // Fetch user's blogs
   const getMyBlogs = async () => {
     try {
-      const res = await axios.get(`https://blog-app-mern-5.onrender.com/api/blogs/my_blogs`, { withCredentials: true })
+      const res = await axios.get(`https://blog-app-mern-8.onrender.com/api/blogs/my_blogs`, { withCredentials: true })
       if (res.data.success) {
         dispatch(setBlog(res.data.blogs))
       }
@@ -52,7 +52,7 @@ const YourBlog = () => {
 
   const deleteBlog = async (id) => {
     try {
-      const res = await axios.delete(`https://blog-app-mern-5.onrender.com/api/blogs/delete/${id}`, {
+      const res = await axios.delete(`https://blog-app-mern-8.onrender.com/api/blogs/delete/${id}`, {
         withCredentials: true
       })
       if (res.data.success) {
