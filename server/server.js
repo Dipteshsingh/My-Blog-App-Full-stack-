@@ -15,7 +15,7 @@ const port = process.env.PORT || 3000;
 app.use(cors({
  origin: [
   'http://localhost:5173',
-  'https://blog-app-mern-6.onrender.com'
+  'https://blog-app-mern-8.onrender.com'
 ],
 
   credentials:true
