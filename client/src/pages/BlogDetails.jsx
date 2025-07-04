@@ -107,7 +107,7 @@ const BlogDetails = () => {
   }
   const togglePublish = async () => {
     try {
-      const res = await axios.patch(`http://localhost:3000/api/blogs/${blogId}`, {
+      const res = await axios.patch(`https://blog-app-mern-5.onrender.com/api/blogs/${blogId}`, {
         withCredentials: true
       })
       if (res.data.success) {
@@ -124,7 +124,7 @@ const BlogDetails = () => {
   }
   const deleteBlog = async () => {
     try {
-      const res = await axios.delete(`http://localhost:3000/api/blogs/delete/${blogId}`, { withCredentials: true })
+      const res = await axios.delete(`https://blog-app-mern-5.onrender.com/api/blogs/delete/${blogId}`, { withCredentials: true })
       if (res.data.success) {
         const updatedBlogData = blog.filter((item) => item._id !== blogId)
         dispatch(setBlog(updatedBlogData))
