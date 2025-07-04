@@ -12,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/blogs");
+        const res = await axios.get("https://blog-app-mern-5.onrender.com/api/blogs");
         setBlogs(res.data);
       } catch (err) {
         console.error("Error fetching blogs:", err);
