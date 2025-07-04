@@ -38,7 +38,7 @@ const CommentBox = ({ selectBlog }) => {
     if (!content.trim()) return toast.error("Comment cannot be empty.");
     try {
       const res = await axios.post(
-        `http://localhost:3000/api/comment/create/${selectBlog._id}`,
+        `https://blog-app-mern-5.onrender.com/api/comment/create/${selectBlog._id}`,
         { content },
         { withCredentials: true }
       );
@@ -65,7 +65,7 @@ const CommentBox = ({ selectBlog }) => {
     if (!editedContent.trim()) return toast.error("Comment cannot be empty.");
     try {
       const res = await axios.put(
-        `http://localhost:3000/api/comment/update/${commentId}`,
+        `https://blog-app-mern-5.onrender.com/api/comment/update/${commentId}`,
         { content: editedContent },
         { withCredentials: true }
       );
@@ -87,7 +87,7 @@ const CommentBox = ({ selectBlog }) => {
   const deleteComment = async (commentId) => {
     try {
       const res = await axios.delete(
-        `http://localhost:3000/api/comment/delete/${commentId}`,
+        `https://blog-app-mern-5.onrender.com/api/comment/delete/${commentId}`,
         { withCredentials: true }
       );
       if (res.data.success) {
@@ -103,7 +103,7 @@ const CommentBox = ({ selectBlog }) => {
 
   const getAllCommentsBlog = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/comment/post-comment/${selectBlog._id}`);
+      const res = await axios.get(`https://blog-app-mern-5.onrender.com/api/comment/post-comment/${selectBlog._id}`);
       const sorted = res.data.comments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
       dispatch(setComment(sorted));
     } catch (error) {
@@ -114,7 +114,7 @@ const CommentBox = ({ selectBlog }) => {
   const likeCommentHandler = async (commentId) => {
     try {
       const res = await axios.post(
-        `http://localhost:3000/api/comment/likes/${commentId}`,
+        `https://blog-app-mern-5.onrender.com/api/comment/likes/${commentId}`,
         {},
         { withCredentials: true }
       );
