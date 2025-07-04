@@ -33,7 +33,7 @@ const Login = () => {
   e.preventDefault();
   try {
     dispatch(setLoading(true))
-    const res = await axios.post(`https://blog-app-mern-5.onrender.com/api/user/login`, input, {
+    const res = await axios.post(`https://blog-app-mern-8.onrender.com/api/user/login`, input, {
       headers: {
         "Content-Type": "application/json"
       },
