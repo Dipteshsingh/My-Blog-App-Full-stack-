@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import getDataUri from "../utils/dataUri.js";
 import cloudinary from "../utils/cloudinary.js";
-import blogModel from "../models/BlogModel.js";
+import blogModel from "../models/blogModel.js";
 
 // Create blogs----
 
