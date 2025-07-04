@@ -32,7 +32,7 @@ const Signup = () => {
     e.preventDefault()
     console.log(user);
     try {
-      const res = await axios.post(`http://localhost:3000/api/user/register`,user,{
+      const res = await axios.post(`https://blog-app-mern-5.onrender.com/api/user/register`,user,{
         headers:{
           "Content-Type":"application/json"
         },
