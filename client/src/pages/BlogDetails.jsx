@@ -84,7 +84,7 @@ const BlogDetails = () => {
     formData.append("file", blogData.thumbnail);
     try {
       dispatch(setLoading(true))
-      const res = await axios.put(`https://blog-app-mern-5.onrender.com/api/blogs/update/${blogId}`, formData, {
+      const res = await axios.put(`https://blog-app-mern-8.onrender.com/api/blogs/update/${blogId}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data"
         },
@@ -107,7 +107,7 @@ const BlogDetails = () => {
   }
   const togglePublish = async () => {
     try {
-      const res = await axios.patch(`https://blog-app-mern-5.onrender.com/api/blogs/${blogId}`, {
+      const res = await axios.patch(`https://blog-app-mern-8.onrender.com/api/blogs/${blogId}`, {
         withCredentials: true
       })
       if (res.data.success) {
@@ -124,7 +124,7 @@ const BlogDetails = () => {
   }
   const deleteBlog = async () => {
     try {
-      const res = await axios.delete(`https://blog-app-mern-5.onrender.com/api/blogs/delete/${blogId}`, { withCredentials: true })
+      const res = await axios.delete(`https://blog-app-mern-8.onrender.com/api/blogs/delete/${blogId}`, { withCredentials: true })
       if (res.data.success) {
         const updatedBlogData = blog.filter((item) => item._id !== blogId)
         dispatch(setBlog(updatedBlogData))
