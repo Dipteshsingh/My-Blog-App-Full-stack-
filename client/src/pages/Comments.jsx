@@ -20,7 +20,7 @@ const Comments = () => {
 
   const getTotalComments = async () => {
     try {
-      const res = await axios.get(`https://blog-app-mern-5.onrender.com/api/comment/all-comment`, {
+      const res = await axios.get(`https://blog-app-mern-8.onrender.com/api/comment/all-comment`, {
         withCredentials: true
       })
       if (res.data.success) {
