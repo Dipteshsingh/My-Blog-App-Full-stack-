@@ -15,7 +15,7 @@ const RecentBlogs = () => {
 
   const getAllPublishedBlogs = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/blogs/get-published-blogs`, {
+      const res = await axios.get(`https://blog-app-mern-5.onrender.com/api/blogs/get-published-blogs`, {
         withCredentials: true
       })
       if (res.data.success) {
