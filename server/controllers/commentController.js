@@ -1,5 +1,5 @@
 import commentModel from "../models/CommentModel.js";
-import blogModel from "../models/BlogModel.js";
+import blogModel from "../models/blogModel.js";
 
 const createComment = async (req, res) => {
   try {
