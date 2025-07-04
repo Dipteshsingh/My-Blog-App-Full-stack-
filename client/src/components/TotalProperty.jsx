@@ -12,7 +12,7 @@ const TotalProperty = () => {
     const dispatch = useDispatch()
     const getAllBlogs = async () =>{
       try {
-        const res = await axios.get(`http://localhost:3000/api/blogs/my_blogs`,{withCredentials:true})
+        const res = await axios.get(`https://blog-app-mern-5.onrender.com/api/blogs/my_blogs`,{withCredentials:true})
         if (res.data.success) {
            dispatch(setBlog(res.data.totalComments))
         }
@@ -22,7 +22,7 @@ const TotalProperty = () => {
     }
     const getTotalComments = async()=>{
         try {
-           const res = await axios.get(`http://localhost:3000/api/comment/all-comment`, { withCredentials: true })
+           const res = await axios.get(`https://blog-app-mern-5.onrender.com/api/comment/all-comment`, { withCredentials: true })
           if(res.data.success){
              setTotalComments(res.data.totalComments)
           }
@@ -34,7 +34,7 @@ const TotalProperty = () => {
 
     const getTotalLikes = async()=>{
       try {
-        const res = await axios.get(`http://localhost:3000/api/my-blogs/likes`,{withCredentials:true})
+        const res = await axios.get(`https://blog-app-mern-5.onrender.com/api/my-blogs/likes`,{withCredentials:true})
         if(res.data.success){
            setTotalLikes(res.data.totalLikes)
         }
