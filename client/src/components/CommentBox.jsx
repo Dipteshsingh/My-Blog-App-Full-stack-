@@ -22,6 +22,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
 const CommentBox = ({ selectBlog }) => {
   const dispatch = useDispatch();
   const { comment } = useSelector(state => state.comment);
@@ -38,7 +39,7 @@ const CommentBox = ({ selectBlog }) => {
     if (!content.trim()) return toast.error("Comment cannot be empty.");
     try {
       const res = await axios.post(
-        `http://localhost:3000/api/comment/create/${selectBlog._id}`,
+        `/api/comment/create/${selectBlog._id}`,
         { content },
         { withCredentials: true }
       );
@@ -65,7 +66,7 @@ const CommentBox = ({ selectBlog }) => {
     if (!editedContent.trim()) return toast.error("Comment cannot be empty.");
     try {
       const res = await axios.put(
-        `http://localhost:3000/api/comment/update/${commentId}`,
+        `/api/comment/update/${commentId}`,
         { content: editedContent },
         { withCredentials: true }
       );
@@ -87,7 +88,7 @@ const CommentBox = ({ selectBlog }) => {
   const deleteComment = async (commentId) => {
     try {
       const res = await axios.delete(
-        `http://localhost:3000/api/comment/delete/${commentId}`,
+        `/api/comment/delete/${commentId}`,
         { withCredentials: true }
       );
       if (res.data.success) {
@@ -103,7 +104,7 @@ const CommentBox = ({ selectBlog }) => {
 
   const getAllCommentsBlog = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/comment/post-comment/${selectBlog._id}`);
+      const res = await axios.get(`/api/comment/post-comment/${selectBlog._id}`);
       const sorted = res.data.comments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
       dispatch(setComment(sorted));
     } catch (error) {
@@ -114,7 +115,7 @@ const CommentBox = ({ selectBlog }) => {
   const likeCommentHandler = async (commentId) => {
     try {
       const res = await axios.post(
-        `http://localhost:3000/api/comment/likes/${commentId}`,
+        `/api/comment/likes/${commentId}`,
         {},
         { withCredentials: true }
       );

@@ -5,6 +5,8 @@ import RecentBlogs from "@/components/RecentBlogs";
 import PopularAuthor from "@/components/PopularAuthor";
 import Footer from "@/components/Footer";
 
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
+
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,7 +14,7 @@ const Home = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/blogs");
+        const res = await axios.get("/api/blogs/get-published-blogs",{withCredentials:true});
         setBlogs(res.data);
       } catch (err) {
         console.error("Error fetching blogs:", err);

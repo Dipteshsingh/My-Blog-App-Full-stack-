@@ -24,6 +24,8 @@ import { setLoading, setUser } from '@/redux/authSlice'
 import { Loader2 } from 'lucide-react'
 import TotalProperty from '@/components/TotalProperty'
 
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
+
 const Profile = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -66,7 +68,7 @@ const Profile = () => {
 
     try {
       dispatch(setLoading(true))
-      const res = await axios.put(`http://localhost:3000/api/user/profile/update`, formData, {
+      const res = await axios.put(`/api/user/profile/update`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
         withCredentials: true
       })

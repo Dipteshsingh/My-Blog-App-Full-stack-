@@ -11,6 +11,7 @@ import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { setLoading, setUser } from '@/redux/authSlice' 
 
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
 
 const Login = () => {
   const navigate = useNavigate()
@@ -33,7 +34,7 @@ const Login = () => {
   e.preventDefault();
   try {
     dispatch(setLoading(true))
-    const res = await axios.post(`http://localhost:3000/api/user/login`, input, {
+    const res = await axios.post(`/api/user/login`, input, {
       headers: {
         "Content-Type": "application/json"
       },

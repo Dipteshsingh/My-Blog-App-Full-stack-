@@ -1,11 +1,12 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
 const PopularAuthor = () => {
   const [popularUser, setPopularUser] = useState([])
   const getAllUsers = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/user/allUsers`, {
+      const res = await axios.get(`/api/user/allUsers`, {
         withCredentials: true
       })
       if (res.data.success) {

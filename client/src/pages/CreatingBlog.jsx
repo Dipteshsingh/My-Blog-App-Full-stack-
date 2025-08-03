@@ -23,6 +23,8 @@ import {
 import { setBlog } from '@/redux/blogSlice'
 import { setLoading } from '@/redux/authSlice'
 
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
+
 const CreatingBlog = () => {
   const [title, setTitle] = useState("")
   const [category, setCategory] = useState("")
@@ -41,7 +43,7 @@ const CreatingBlog = () => {
     dispatch(setLoading(true))
     try {
       const res = await axios.post(
-        `http://localhost:3000/api/blogs/create`,
+        `/api/blogs/create`,
         { title, category, description },
         {
           headers: { "Content-Type": "application/json" },

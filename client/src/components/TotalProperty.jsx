@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { BarChart3, Eye, MessageSquare, ThumbsUp } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
 const TotalProperty = () => {
   const {blog} = useSelector(store=>store.blog)
   const [totalComments, setTotalComments] = useState(0)
@@ -12,7 +13,7 @@ const TotalProperty = () => {
     const dispatch = useDispatch()
     const getAllBlogs = async () =>{
       try {
-        const res = await axios.get(`http://localhost:3000/api/blogs/my_blogs`,{withCredentials:true})
+        const res = await axios.get(`/api/blogs/my_blogs`,{withCredentials:true})
         if (res.data.success) {
            dispatch(setBlog(res.data.totalComments))
         }
@@ -22,7 +23,7 @@ const TotalProperty = () => {
     }
     const getTotalComments = async()=>{
         try {
-           const res = await axios.get(`http://localhost:3000/api/comment/all-comment`, { withCredentials: true })
+           const res = await axios.get(`/api/comment/all-comment`, { withCredentials: true })
           if(res.data.success){
              setTotalComments(res.data.totalComments)
           }
@@ -34,7 +35,7 @@ const TotalProperty = () => {
 
     const getTotalLikes = async()=>{
       try {
-        const res = await axios.get(`http://localhost:3000/api/my-blogs/likes`,{withCredentials:true})
+        const res = await axios.get(`/api/my-blogs/likes`,{withCredentials:true})
         if(res.data.success){
            setTotalLikes(res.data.totalLikes)
         }

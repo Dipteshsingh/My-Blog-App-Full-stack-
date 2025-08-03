@@ -21,7 +21,7 @@ import axios from 'axios';
 import { Loader2 } from 'lucide-react';
 import { setBlog } from '@/redux/blogSlice';
 
-
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
 
 const BlogDetails = () => {
   const dispatch = useDispatch()
@@ -84,7 +84,7 @@ const BlogDetails = () => {
     formData.append("file", blogData.thumbnail);
     try {
       dispatch(setLoading(true))
-      const res = await axios.put(`http://localhost:3000/api/blogs/update/${blogId}`, formData, {
+      const res = await axios.put(`/api/blogs/update/${blogId}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data"
         },
@@ -107,7 +107,7 @@ const BlogDetails = () => {
   }
   const togglePublish = async () => {
     try {
-      const res = await axios.patch(`http://localhost:3000/api/blogs/${blogId}`, {
+      const res = await axios.patch(`/api/blogs/${blogId}`, {
         withCredentials: true
       })
       if (res.data.success) {
@@ -124,7 +124,7 @@ const BlogDetails = () => {
   }
   const deleteBlog = async () => {
     try {
-      const res = await axios.delete(`http://localhost:3000/api/blogs/delete/${blogId}`, { withCredentials: true })
+      const res = await axios.delete(`/api/blogs/delete/${blogId}`, { withCredentials: true })
       if (res.data.success) {
         const updatedBlogData = blog.filter((item) => item._id !== blogId)
         dispatch(setBlog(updatedBlogData))
@@ -196,7 +196,7 @@ const BlogDetails = () => {
                   <SelectItem value="Personal Development">Personal Development</SelectItem>
                   <SelectItem value="News & Politics">News & Politics</SelectItem>
                   <SelectItem value="Entertainment">Entertainment</SelectItem>
-                  <SelectItem value="Gaming">Gaming</SelectItem>
+                  <SelectItem value="Sports">Sports</SelectItem>
                   <SelectItem value="Productivity">Productivity</SelectItem>
                 </SelectGroup>
               </SelectContent>

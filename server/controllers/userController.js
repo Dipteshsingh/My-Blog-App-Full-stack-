@@ -95,6 +95,7 @@ const loginUser = async (req, res) => {
         _id: user._id,
         email: user.email,
         name: user.firstName,
+        photoUrl:user.photoUrl
       },
     });
 

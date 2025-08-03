@@ -19,6 +19,8 @@ import axios from 'axios'
 import CommentBox from '@/components/CommentBox'
 import { toast } from 'sonner'
 
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
+
 const SingleBlog = () => {
   const { id: blogId } = useParams();
   const { blog } = useSelector(store => store.blog)
@@ -66,7 +68,7 @@ const SingleBlog = () => {
   const likeOrDislikeHandler = async () => {
     try {
       const action = liked ? "dislike" : "like"
-      const res = await axios.get(`http://localhost:3000/api/blogs/${selectBlog._id}/${action}`, { withCredentials: true })
+      const res = await axios.get(`/api/blogs/${selectBlog._id}/${action}`, { withCredentials: true })
       if (res.data.success) {
         const updatedLikes = liked ? blogLike - 1 : blogLike + 1;
         setBlogLike(updatedLikes);
@@ -113,14 +115,14 @@ const SingleBlog = () => {
             <div className="flex items-center space-x-4">
               <Avatar>
                 <div className="w-10 h-10 rounded-full overflow-hidden">
-                  <AvatarImage src={selectBlog.author.photoUrl} alt="Author" className="w-full h-full object-cover" />
+                  <AvatarImage src={selectBlog.author?.photoUrl} alt="Author" className="w-full h-full object-cover" />
                 </div>
 
                 <AvatarFallback>JD</AvatarFallback>
               </Avatar>
               <div>
-                <p className="font-medium">{selectBlog.author.firstName} {selectBlog.author.lastName}</p>
-                <p className="text-sm text-muted-foreground">{selectBlog.author.occupation}</p>
+                <p className="font-medium">{selectBlog.author?.firstName} {selectBlog.author?.lastName}</p>
+                <p className="text-sm text-muted-foreground">{selectBlog.author?.occupation}</p>
               </div>
             </div>
             <div className="text-sm text-muted-foreground">Published on {changeTimeFormat(selectBlog.createdAt)} • 8 min read</div>

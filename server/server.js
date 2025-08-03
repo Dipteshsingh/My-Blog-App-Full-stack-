@@ -16,16 +16,14 @@ app.use(cors({
   origin:'http://localhost:5173',
   credentials:true
 }));
-const _dirname = path.resolve()
+// const _dirname = path.resolve()
 app.use(express.json())
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static('uploads'));
 
-app.use(express.static(path.join(_dirname,'/client/dist')))
-// app.get('*',(_,res)=>{
-//   res.sendFile(path.resolve(_dirname,'client','dist','index.html'))
-// })
+// app.use(express.static(path.join(_dirname,'/client/dist')))
+
 
 
 // api end points

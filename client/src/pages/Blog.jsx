@@ -4,12 +4,13 @@ import axios from 'axios';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
 const Blog = () => {
   const {blog} = useSelector(store=>store.blog)
   const dispatch = useDispatch()
   const getAllPublishedBlogs = async ()=>{
     try {
-      const res = await axios.get(`http://localhost:3000/api/blogs/get-published-blogs`,{
+      const res = await axios.get(`/api/blogs/get-published-blogs`,{
         withCredentials:true
       })
       if (res.data.success) {

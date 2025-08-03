@@ -9,6 +9,7 @@ import { Eye, EyeOff } from "lucide-react"
 import { toast } from 'sonner'
 import axios from 'axios'
 
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
 const Signup = () => {
   const navigate = useNavigate();
 
@@ -32,14 +33,14 @@ const Signup = () => {
     e.preventDefault()
     console.log(user);
     try {
-      const res = await axios.post(`http://localhost:3000/api/user/register`,user,{
+      const res = await axios.post('/api/user/register',user,{
         headers:{
           "Content-Type":"application/json"
         },
         withCredentials:true
       })
       if (res.data.success) {
-        navigate("/login")
+        navigate("/")
         toast.success(res.data.message)
       }
     } catch (error) {
