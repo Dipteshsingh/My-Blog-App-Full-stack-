@@ -39,7 +39,11 @@ const CommentBox = ({ selectBlog }) => {
     if (!content.trim()) return toast.error("Comment cannot be empty.");
     try {
       const res = await axios.post(
+<<<<<<< HEAD
         `/api/comment/create/${selectBlog._id}`,
+=======
+        `https://blog-app-mern-8.onrender.com/api/comment/create/${selectBlog._id}`,
+>>>>>>> 8547ed6a7e652260c0629c770677fe3763d43942
         { content },
         { withCredentials: true }
       );
@@ -66,7 +70,11 @@ const CommentBox = ({ selectBlog }) => {
     if (!editedContent.trim()) return toast.error("Comment cannot be empty.");
     try {
       const res = await axios.put(
+<<<<<<< HEAD
         `/api/comment/update/${commentId}`,
+=======
+        `https://blog-app-mern-8.onrender.com/api/comment/update/${commentId}`,
+>>>>>>> 8547ed6a7e652260c0629c770677fe3763d43942
         { content: editedContent },
         { withCredentials: true }
       );
@@ -88,7 +96,11 @@ const CommentBox = ({ selectBlog }) => {
   const deleteComment = async (commentId) => {
     try {
       const res = await axios.delete(
+<<<<<<< HEAD
         `/api/comment/delete/${commentId}`,
+=======
+        `https://blog-app-mern-8.onrender.com/api/comment/delete/${commentId}`,
+>>>>>>> 8547ed6a7e652260c0629c770677fe3763d43942
         { withCredentials: true }
       );
       if (res.data.success) {
@@ -104,7 +116,11 @@ const CommentBox = ({ selectBlog }) => {
 
   const getAllCommentsBlog = async () => {
     try {
+<<<<<<< HEAD
       const res = await axios.get(`/api/comment/post-comment/${selectBlog._id}`);
+=======
+      const res = await axios.get(`https://blog-app-mern-8.onrender.com/api/comment/post-comment/${selectBlog._id}`);
+>>>>>>> 8547ed6a7e652260c0629c770677fe3763d43942
       const sorted = res.data.comments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
       dispatch(setComment(sorted));
     } catch (error) {
@@ -115,7 +131,11 @@ const CommentBox = ({ selectBlog }) => {
   const likeCommentHandler = async (commentId) => {
     try {
       const res = await axios.post(
+<<<<<<< HEAD
         `/api/comment/likes/${commentId}`,
+=======
+        `https://blog-app-mern-8.onrender.com/api/comment/likes/${commentId}`,
+>>>>>>> 8547ed6a7e652260c0629c770677fe3763d43942
         {},
         { withCredentials: true }
       );

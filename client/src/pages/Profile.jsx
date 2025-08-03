@@ -68,7 +68,11 @@ const Profile = () => {
 
     try {
       dispatch(setLoading(true))
+<<<<<<< HEAD
       const res = await axios.put(`/api/user/profile/update`, formData, {
+=======
+      const res = await axios.put(`https://blog-app-mern-8.onrender.com/api/user/profile/update`, formData, {
+>>>>>>> 8547ed6a7e652260c0629c770677fe3763d43942
         headers: { "Content-Type": "multipart/form-data" },
         withCredentials: true
       })

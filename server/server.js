@@ -13,8 +13,8 @@ const port = process.env.PORT || 3000;
 
 
 app.use(cors({
-  origin:'http://localhost:5173',
-  credentials:true
+  origin: 'https://blog-app-mern-8.onrender.com',
+  credentials: true
 }));
 // const _dirname = path.resolve()
 app.use(express.json())

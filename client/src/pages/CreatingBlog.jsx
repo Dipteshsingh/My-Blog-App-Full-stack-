@@ -43,7 +43,11 @@ const CreatingBlog = () => {
     dispatch(setLoading(true))
     try {
       const res = await axios.post(
+<<<<<<< HEAD
         `/api/blogs/create`,
+=======
+        `https://blog-app-mern-8.onrender.com/api/blogs/create`,
+>>>>>>> 8547ed6a7e652260c0629c770677fe3763d43942
         { title, category, description },
         {
           headers: { "Content-Type": "application/json" },

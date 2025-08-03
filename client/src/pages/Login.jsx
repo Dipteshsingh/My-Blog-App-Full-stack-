@@ -34,7 +34,11 @@ const Login = () => {
   e.preventDefault();
   try {
     dispatch(setLoading(true))
+<<<<<<< HEAD
     const res = await axios.post(`/api/user/login`, input, {
+=======
+    const res = await axios.post(`https://blog-app-mern-8.onrender.com/api/user/login`, input, {
+>>>>>>> 8547ed6a7e652260c0629c770677fe3763d43942
       headers: {
         "Content-Type": "application/json"
       },
