@@ -68,11 +68,7 @@ const SingleBlog = () => {
   const likeOrDislikeHandler = async () => {
     try {
       const action = liked ? "dislike" : "like"
-<<<<<<< HEAD
       const res = await axios.get(`/api/blogs/${selectBlog._id}/${action}`, { withCredentials: true })
-=======
-      const res = await axios.get(`https://blog-app-mern-8.onrender.com/api/blogs/${selectBlog._id}/${action}`, { withCredentials: true })
->>>>>>> 8547ed6a7e652260c0629c770677fe3763d43942
       if (res.data.success) {
         const updatedLikes = liked ? blogLike - 1 : blogLike + 1;
         setBlogLike(updatedLikes);

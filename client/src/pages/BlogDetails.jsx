@@ -84,11 +84,7 @@ const BlogDetails = () => {
     formData.append("file", blogData.thumbnail);
     try {
       dispatch(setLoading(true))
-<<<<<<< HEAD
       const res = await axios.put(`/api/blogs/update/${blogId}`, formData, {
-=======
-      const res = await axios.put(`https://blog-app-mern-8.onrender.com/api/blogs/update/${blogId}`, formData, {
->>>>>>> 8547ed6a7e652260c0629c770677fe3763d43942
         headers: {
           "Content-Type": "multipart/form-data"
         },
@@ -111,11 +107,7 @@ const BlogDetails = () => {
   }
   const togglePublish = async () => {
     try {
-<<<<<<< HEAD
       const res = await axios.patch(`/api/blogs/${blogId}`, {
-=======
-      const res = await axios.patch(`https://blog-app-mern-8.onrender.com/api/blogs/${blogId}`, {
->>>>>>> 8547ed6a7e652260c0629c770677fe3763d43942
         withCredentials: true
       })
       if (res.data.success) {
@@ -132,11 +124,7 @@ const BlogDetails = () => {
   }
   const deleteBlog = async () => {
     try {
-<<<<<<< HEAD
       const res = await axios.delete(`/api/blogs/delete/${blogId}`, { withCredentials: true })
-=======
-      const res = await axios.delete(`https://blog-app-mern-8.onrender.com/api/blogs/delete/${blogId}`, { withCredentials: true })
->>>>>>> 8547ed6a7e652260c0629c770677fe3763d43942
       if (res.data.success) {
         const updatedBlogData = blog.filter((item) => item._id !== blogId)
         dispatch(setBlog(updatedBlogData))

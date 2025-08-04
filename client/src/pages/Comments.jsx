@@ -22,11 +22,7 @@ const Comments = () => {
 
   const getTotalComments = async () => {
     try {
-<<<<<<< HEAD
       const res = await axios.get(`/api/comment/all-comment`, {
-=======
-      const res = await axios.get(`https://blog-app-mern-8.onrender.com/api/comment/all-comment`, {
->>>>>>> 8547ed6a7e652260c0629c770677fe3763d43942
         withCredentials: true
       })
       if (res.data.success) {

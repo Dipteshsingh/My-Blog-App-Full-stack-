@@ -13,11 +13,7 @@ const TotalProperty = () => {
     const dispatch = useDispatch()
     const getAllBlogs = async () =>{
       try {
-<<<<<<< HEAD
         const res = await axios.get(`/api/blogs/my_blogs`,{withCredentials:true})
-=======
-        const res = await axios.get(`https://blog-app-mern-8.onrender.com/api/blogs/my_blogs`,{withCredentials:true})
->>>>>>> 8547ed6a7e652260c0629c770677fe3763d43942
         if (res.data.success) {
            dispatch(setBlog(res.data.totalComments))
         }
@@ -27,11 +23,7 @@ const TotalProperty = () => {
     }
     const getTotalComments = async()=>{
         try {
-<<<<<<< HEAD
            const res = await axios.get(`/api/comment/all-comment`, { withCredentials: true })
-=======
-           const res = await axios.get(`https://blog-app-mern-8.onrender.com/api/comment/all-comment`, { withCredentials: true })
->>>>>>> 8547ed6a7e652260c0629c770677fe3763d43942
           if(res.data.success){
              setTotalComments(res.data.totalComments)
           }
@@ -43,11 +35,7 @@ const TotalProperty = () => {
 
     const getTotalLikes = async()=>{
       try {
-<<<<<<< HEAD
         const res = await axios.get(`/api/my-blogs/likes`,{withCredentials:true})
-=======
-        const res = await axios.get(`https://blog-app-mern-8.onrender.com/api/my-blogs/likes`,{withCredentials:true})
->>>>>>> 8547ed6a7e652260c0629c770677fe3763d43942
         if(res.data.success){
            setTotalLikes(res.data.totalLikes)
         }

@@ -33,11 +33,7 @@ const Signup = () => {
     e.preventDefault()
     console.log(user);
     try {
-<<<<<<< HEAD
       const res = await axios.post('/api/user/register',user,{
-=======
-      const res = await axios.post(`https://blog-app-mern-8.onrender.com/api/user/register`,user,{
->>>>>>> 8547ed6a7e652260c0629c770677fe3763d43942
         headers:{
           "Content-Type":"application/json"
         },

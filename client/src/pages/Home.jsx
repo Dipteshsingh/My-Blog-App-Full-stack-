@@ -14,11 +14,7 @@ const Home = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-<<<<<<< HEAD
         const res = await axios.get("/api/blogs/get-published-blogs",{withCredentials:true});
-=======
-        const res = await axios.get("https://blog-app-mern-8.onrender.com/api/blogs");
->>>>>>> 8547ed6a7e652260c0629c770677fe3763d43942
         setBlogs(res.data);
       } catch (err) {
         console.error("Error fetching blogs:", err);

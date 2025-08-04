@@ -10,11 +10,7 @@ const Blog = () => {
   const dispatch = useDispatch()
   const getAllPublishedBlogs = async ()=>{
     try {
-<<<<<<< HEAD
       const res = await axios.get(`/api/blogs/get-published-blogs`,{
-=======
-      const res = await axios.get(`https://blog-app-mern-8.onrender.com/api/blogs/get-published-blogs`,{
->>>>>>> 8547ed6a7e652260c0629c770677fe3763d43942
         withCredentials:true
       })
       if (res.data.success) {
