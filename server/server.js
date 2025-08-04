@@ -12,10 +12,22 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://my-blog-app-client.onrender.com"
+];
+
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true
 }));
+
 // const _dirname = path.resolve()
 app.use(express.json())
 app.use(cookieParser())
